@@ -1,8 +1,8 @@
-package by.trjava.task02.service.specification.util.impl;
+package by.trjava.task02.service.util.impl;
 
 import by.trjava.task02.entity.Book;
 import by.trjava.task02.entity.Edition;
-import by.trjava.task02.service.specification.util.UtilSpecification;
+import by.trjava.task02.service.util.UtilSpecification;
 import org.junit.Test;
 
 import java.util.ArrayList;

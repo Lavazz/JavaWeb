@@ -1,16 +1,15 @@
 package repository.impl;
 
+import by.trjava.task02.dao.repository.impl.RepositoryImpl;
 import by.trjava.task02.entity.Book;
 import by.trjava.task02.entity.Edition;
 import by.trjava.task02.entity.Newspaper;
 import by.trjava.task02.exception.*;
-import by.trjava.task02.service.comparator.ComparatorByID;
-import by.trjava.task02.service.comparator.ComparatorByInitialPrice;
 import by.trjava.task02.service.comparator.ComparatorByReleaseYear;
 import by.trjava.task02.service.specification.SpecificationSearch;
 import by.trjava.task02.service.specification.search.impl.*;
 import org.junit.Test;
-import repository.Repository;
+import by.trjava.task02.dao.repository.Repository;
 
 import java.util.ArrayList;
 import java.util.Comparator;

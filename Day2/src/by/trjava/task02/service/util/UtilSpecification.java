@@ -1,4 +1,4 @@
-package by.trjava.task02.service.specification.util;
+package by.trjava.task02.service.util;
 
 import by.trjava.task02.entity.Edition;
 

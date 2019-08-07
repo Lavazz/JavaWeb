@@ -1,6 +1,7 @@
 package by.trjava.task02.dao.impl;
 
 import by.trjava.task02.dao.FileEditionDAO;
+import by.trjava.task02.dao.repository.impl.RepositoryImpl;
 import by.trjava.task02.entity.*;
 import by.trjava.task02.entity.Magazine;
 import by.trjava.task02.entity.Newspaper;
@@ -41,7 +42,7 @@ public class FileEditionDAOImpl implements FileEditionDAO {
      * @throws NumberFormatException if expected a number from a string, but there is a different type
      * @throws NotNumberException
      * @see interface FileApplianceDAO
-     * @see repository.impl.RepositoryImpl
+     * @see RepositoryImpl
      */
     @Override
     public Edition create(String editionType, Map<String, Object> editionMap) throws NumberFormatException, NotNumberException {

@@ -1,4 +1,4 @@
-package repository.impl;
+package by.trjava.task02.dao.repository.impl;
 
 import by.trjava.task02.dao.DAOFactory;
 import by.trjava.task02.dao.FileEditionDAO;
@@ -6,12 +6,10 @@ import by.trjava.task02.dao.FileReader;
 import by.trjava.task02.dao.Parser;
 import by.trjava.task02.exception.*;
 import by.trjava.task02.service.specification.SpecificationSearch;
-import repository.Repository;
+import by.trjava.task02.dao.repository.Repository;
 import by.trjava.task02.entity.Edition;
 
 import java.util.*;
-
-import static java.util.stream.Collectors.*;
 
 //import static java.util.stream.Collectors.toList;
 

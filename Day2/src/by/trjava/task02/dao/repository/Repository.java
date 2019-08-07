@@ -1,4 +1,4 @@
-package repository;
+package by.trjava.task02.dao.repository;
 
 import by.trjava.task02.entity.Edition;
 import by.trjava.task02.exception.*;
