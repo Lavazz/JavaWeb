@@ -3,6 +3,7 @@ package by.trjava.task02.controller;
 import by.trjava.task02.entity.Edition;
 import by.trjava.task02.exception.*;
 import by.trjava.task02.service.EditionService;
+import by.trjava.task02.service.ServiceRepository;
 import by.trjava.task02.service.comparator.ComparatorByReleaseYear;
 import by.trjava.task02.service.impl.EditionServiceImpl;
 import by.trjava.task02.service.specification.SpecificationSearch;
@@ -31,7 +32,8 @@ public class LibraryImpl implements Library {
 
     private static final Logger LOGGER = Logger.getLogger(LibraryImpl.class);
 
-    EditionService editionService = EditionServiceImpl.getInstance();
+    ServiceRepository serviceRepository = ServiceRepository.getInstance();
+    EditionService editionService = serviceRepository.getEditionService();
     List<Edition> editionList = new ArrayList<>();
 
     @Override

@@ -1,5 +1,6 @@
 package by.trjava.task02.service.impl;
 
+import by.trjava.task02.dao.FileEditionDAO;
 import by.trjava.task02.dao.repository.Repository;
 import by.trjava.task02.dao.repository.impl.RepositoryImpl;
 import by.trjava.task02.entity.Edition;
@@ -12,19 +13,21 @@ import java.util.List;
 
 public class EditionServiceImpl implements EditionService {
 
-    private static EditionService instance = new EditionServiceImpl();
+//    private static EditionService instance = new EditionServiceImpl();
+//
+//    public static EditionService getInstance() {
+//        return instance;
+//    }
+//
+//    public EditionServiceImpl() {
+//    }
 
-    public static EditionService getInstance() {
-        return instance;
-    }
-
-    private EditionServiceImpl() {
-    }
 
     Repository repository = RepositoryImpl.getInstance();
 
     @Override
     public List<Edition> save() throws NotNumberException, WrongKeyDAOException, WrongFileException, WrongValueDAOException, WrongPathException {
+
         repository.save();
         return repository.getAll();
     }

@@ -1,6 +1,6 @@
 package by.trjava.task02.dao.repository.impl;
 
-import by.trjava.task02.dao.DAOFactory;
+import by.trjava.task02.dao.factory.DAOFactory;
 import by.trjava.task02.dao.FileEditionDAO;
 import by.trjava.task02.dao.FileReader;
 import by.trjava.task02.dao.Parser;

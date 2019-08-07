@@ -1,6 +1,7 @@
-package by.trjava.task02.dao;
+package by.trjava.task02.dao.factory;
 
-import by.trjava.task02.dao.impl.FileEditionDAOImpl;
+import by.trjava.task02.dao.FileEditionDAO;
+import by.trjava.task02.dao.factory.impl.FileEditionDAOImpl;
 
 /**
  * This class responsible for creating a single instance appliances
@@ -26,7 +27,4 @@ public class DAOFactory {
     public FileEditionDAO getEditionDAO() {
         return editionDAO;
     }
-
-
-
 }
