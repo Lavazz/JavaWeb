@@ -1,5 +1,6 @@
 package by.trjava.task02.controller;
 
+import by.trjava.task02.entity.Book;
 import by.trjava.task02.entity.Edition;
 import by.trjava.task02.exception.*;
 import by.trjava.task02.service.EditionService;
@@ -40,7 +41,7 @@ public class LibraryImpl implements Library {
     public void makeLibrary() {
 
         try {
-            editionList = editionService.save();
+            editionList = editionService.make();
             LOGGER.info("Save all editions in repository: ");
             for (Edition edition : editionList) {
                 LOGGER.info(edition);
@@ -51,13 +52,13 @@ public class LibraryImpl implements Library {
 
         SpecificationSearch specificationSearch = new SpecificationSearchByType("Book");
         List<Edition> search = editionService.find(specificationSearch);
-        LOGGER.info("\n");
+        LOGGER.info("\"======================\""+"\n");
         LOGGER.info("Find next Book:");
         for (Edition edition : search) {
             LOGGER.info(edition);
         }
 
-        LOGGER.info("\n");
+        LOGGER.info("\"======================\""+"\n");
         UtilSpecification utilSpecification = UtilSpecificationImpl.getInstance();
         int sum = utilSpecification.calculateSum(search);
         LOGGER.info("Sum of pages of all books :" + sum + " pages");
@@ -65,7 +66,7 @@ public class LibraryImpl implements Library {
         SpecificationSearch searchByGenre = new SpecificationSearchByGenre("Belletristic");
         SpecificationSearch searchByRangePages = new SpecificationSearchByNumberOfPages(100, 400);
         List<Edition> searchGenre = editionService.find(searchByGenre.And(searchByRangePages));
-        LOGGER.info("\n");
+        LOGGER.info("\"======================\""+"\n");
         LOGGER.info("Find next belletristic Books with number of pages 205-300 :");
         for (Edition edition : searchGenre) {
             LOGGER.info(edition);
@@ -73,7 +74,7 @@ public class LibraryImpl implements Library {
 
         SpecificationSearch searchByFirstLetter = new SpecificationSearchByTitleFirstLetter("T");
         List<Edition> searchFirstLetter = editionService.find(searchByFirstLetter);
-        LOGGER.info("\n");
+        LOGGER.info("\"======================\""+"\n");
         LOGGER.info("Find next editions start with letter T: ");
         for (Edition edition : searchFirstLetter) {
             LOGGER.info(edition);
@@ -82,10 +83,11 @@ public class LibraryImpl implements Library {
 
         Comparator comparator = new ComparatorByReleaseYear();
         editionList.sort(comparator);
-        LOGGER.info("\n");
+        LOGGER.info("\"======================\""+"\n");
         LOGGER.info("Sort editions by release year: ");
         for (Edition edition : editionList) {
             LOGGER.info(edition);
+            editionService.clear();
         }
     }
 

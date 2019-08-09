@@ -8,9 +8,10 @@ import java.util.Comparator;
 import java.util.List;
 
 public interface Repository<T extends Edition> {
-    void save() throws WrongValueDAOException, WrongPathException, WrongFileException, NotNumberException, WrongKeyDAOException;
+    void make() throws WrongValueDAOException, WrongPathException, WrongFileException, NotNumberException, WrongKeyDAOException;
+    void add(T edition) ;
 
-    List<T> getAll();
+     List<T> getAll();
 
     List<Edition> find(SpecificationSearch specificationSearch);
 

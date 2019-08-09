@@ -132,9 +132,9 @@ public abstract class Edition {
                 "id=" + id +
                 ", genre='"+genre+ '\''+
                 ", title='" + title + '\'' +
+                ", releaseYear=" + releaseYear+
                 ", numberOfPages=" + numberOfPages +
-                ", initialPrice=" + initialPrice +
-                ", releaseYear=" + releaseYear;
+                ", initialPrice=" + initialPrice ;
     }
 
 }

@@ -43,7 +43,7 @@ public class RepositoryImpl implements Repository {
      * @throws NotNumberException     if expected a number from a string, but there is a different type
      */
     @Override
-    public void save() throws WrongValueDAOException, WrongPathException, WrongFileException, NotNumberException, WrongKeyDAOException {
+    public void make() throws WrongValueDAOException, WrongPathException, WrongFileException, NotNumberException, WrongKeyDAOException {
 
         List<String> lines = FileReader.readEditionList();
 
@@ -61,7 +61,13 @@ public class RepositoryImpl implements Repository {
                 editionList.add(edition);
             }
         }
+    }
 
+    @Override
+    public void add(Edition edition) {
+        if (edition != null) {
+            editionList.add(edition);
+        }
     }
 
     /**
@@ -97,7 +103,7 @@ public class RepositoryImpl implements Repository {
         editionList.remove(edition);
     }
 
-    /**
+       /**
      * This method sorts objects, which are saved in the repository
      *
      * @param comparator which is needed for sorting

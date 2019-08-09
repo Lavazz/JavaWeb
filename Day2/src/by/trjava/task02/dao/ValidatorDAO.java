@@ -1,5 +1,7 @@
 package by.trjava.task02.dao;
 
+import by.trjava.task02.entity.type.EditionType;
+
 /**
  * This class check if can editions contains this format of information
  *
@@ -16,7 +18,13 @@ public class ValidatorDAO {
      */
     public static boolean validateKey(String key) {
         boolean result = true;
-        if (((String) key).isEmpty()) {
+        if (key.isEmpty()) {
+            result = false;
+        } else if (!((key.equals(EditionType.Book.ID.toString())) || (key.equals(EditionType.Book.AUTHOR.toString()))
+                || (key.equals(EditionType.Book.GENRE.toString())) || (key.equals(EditionType.Book.TITLE.toString()))
+                || (key.equals(EditionType.Book.RELEASE_YEAR.toString())) || (key.equals(EditionType.Book.NUMBER_OF_PAGES.toString()))
+                || (key.equals(EditionType.Book.INITIAL_PRICE.toString())) || (key.equals(EditionType.Album.DESIGNER.toString()))
+                || (key.equals(EditionType.Newspaper.EDITOR.toString())) || (key.equals(EditionType.Magazine.RELEASE_MONTH.toString())))) {
             result = false;
         }
         return result;
@@ -30,16 +38,23 @@ public class ValidatorDAO {
      * {@code false} if other
      */
     public static boolean validateValue(Object value) {
+
+        final int VALUE_MIN = 0;
+        final int VALUE_MAX = 2500;
+        final String REG_NUMBER = "[+-]?([0-9]*[.])?[0-9]+";
         boolean result = true;
-        if (!((value instanceof String) || (value instanceof Integer) || (value instanceof Double))) {
-            result = false;
-        }
-        if (value instanceof String) {
-            if (((String) value).isEmpty()) {
-                result = false;
+
+        if (((String) value).matches(REG_NUMBER)) {
+            double doubleValue = Double.parseDouble((String) value);
+            if (doubleValue < VALUE_MIN || doubleValue > VALUE_MAX) {
+                return false;
             }
+        }
+        if (((String) value).isEmpty()) {
+            result = false;
         }
         return result;
     }
-
 }
+
+

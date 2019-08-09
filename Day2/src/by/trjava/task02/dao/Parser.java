@@ -50,7 +50,7 @@ public class Parser {
             }
             if (!ValidatorDAO.validateValue(value)) {
                 LOGGER.debug("Value in file is not valid");
-                throw new WrongValueDAOException("Wrong key in DAO");
+                throw new WrongValueDAOException("Wrong value in DAO");
             }
             map.put(key, value);
         }

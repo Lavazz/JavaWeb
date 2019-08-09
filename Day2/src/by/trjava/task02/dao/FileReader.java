@@ -1,5 +1,6 @@
 package by.trjava.task02.dao;
 
+import by.trjava.task02.entity.Edition;
 import by.trjava.task02.exception.WrongFileException;
 import by.trjava.task02.exception.WrongKeyDAOException;
 import by.trjava.task02.exception.WrongPathException;
@@ -52,5 +53,6 @@ public class FileReader {
             throw new WrongFileException("File is wrong", ioe);
         }
     }
+
 }
 

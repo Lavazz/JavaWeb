@@ -22,14 +22,14 @@ public class RepositoryImplTest {
     @Test
     public void findByTitle() throws NotNumberException, WrongKeyDAOException, WrongFileException, WrongValueDAOException, WrongPathException {
         Repository repository = RepositoryImpl.getInstance();
-        repository.save();
+        repository.make();
 
-        SpecificationSearch specificationSearch=new SpecificationSearchByTitle("trafficRegulations");
+        SpecificationSearch specificationSearch = new SpecificationSearchByTitle("trafficRegulations");
         List<Edition> actual = repository.find(specificationSearch);
 
-        List<Edition> expected=new ArrayList<>();
+        List<Edition> expected = new ArrayList<>();
         expected.add(new Book(2, "trafficRegulations", 296, 2017, 10,
-                "Pavlov", "BookEducation") );
+                "Pavlov", "BookEducation"));
         assertEquals(expected, actual);
         repository.clear();
     }
@@ -37,18 +37,18 @@ public class RepositoryImplTest {
     @Test
     public void findByType() throws NotNumberException, WrongKeyDAOException, WrongFileException, WrongValueDAOException, WrongPathException {
         Repository repository = RepositoryImpl.getInstance();
-        repository.save();
+        repository.make();
 
-        SpecificationSearch specificationSearch=new SpecificationSearchByType("Book");
+        SpecificationSearch specificationSearch = new SpecificationSearchByType("Book");
         List<Edition> actual = repository.find(specificationSearch);
 
-        List<Edition> expected=new ArrayList<>();
+        List<Edition> expected = new ArrayList<>();
         expected.add(new Book(1, "HarryPotter", 200, 1997, 60,
                 "Rowling", "Belletristic"));
         expected.add(new Book(2, "trafficRegulations", 296, 2017, 10,
-                "Pavlov", "BookEducation") );
+                "Pavlov", "BookEducation"));
         expected.add(new Book(3, "WarAndPeace", 1226, 1869, 8,
-                "Tolstoy", "Belletristic") );
+                "Tolstoy", "Belletristic"));
         expected.add(new Book(4, "JavaMethodsProgrammings", 898, 2013, 11,
                 "Blinov", "BookEducation"));
         expected.add(new Book(5, "TheMasterAndMargarita", 256, 1967, 8,
@@ -61,18 +61,18 @@ public class RepositoryImplTest {
     @Test
     public void findByFirsLetter() throws NotNumberException, WrongKeyDAOException, WrongFileException, WrongValueDAOException, WrongPathException {
         Repository repository = RepositoryImpl.getInstance();
-        repository.save();
+        repository.make();
 
-        SpecificationSearch specificationSearch=new SpecificationSearchByTitleFirstLetter("T");
+        SpecificationSearch specificationSearch = new SpecificationSearchByTitleFirstLetter("T");
         List<Edition> actual = repository.find(specificationSearch);
 
-        List<Edition> expected=new ArrayList<>();
+        List<Edition> expected = new ArrayList<>();
         expected.add(new Book(2, "trafficRegulations", 296, 2017, 10,
-                "Pavlov", "BookEducation") );
+                "Pavlov", "BookEducation"));
         expected.add(new Book(5, "TheMasterAndMargarita", 256, 1967, 8,
                 "Bulgakov", "Belletristic"));
         expected.add(new Newspaper(10, "Times", 22, 2007, 8,
-                "Danko", 4, "political") );
+                "Danko", 4, "political"));
 
         assertEquals(expected, actual);
         repository.clear();
@@ -81,41 +81,65 @@ public class RepositoryImplTest {
     @Test
     public void findTwoParameters() throws NotNumberException, WrongKeyDAOException, WrongFileException, WrongValueDAOException, WrongPathException {
         Repository repository = RepositoryImpl.getInstance();
-        repository.save();
+        repository.make();
 
-        SpecificationSearch specificationSearch=new SpecificationSearchByGenre("Belletristic");
+        SpecificationSearch specificationSearch = new SpecificationSearchByGenre("Belletristic");
         SpecificationSearch specificationSearch1 = new SpecificationSearchByNumberOfPages(100, 400);
         List<Edition> actual = repository.find(specificationSearch.And(specificationSearch1));
 
-        List<Edition> expected=new ArrayList<>();
+        List<Edition> expected = new ArrayList<>();
         expected.add(new Book(1, "HarryPotter", 200, 1997, 60,
                 "Rowling", "Belletristic"));
         expected.add(new Book(5, "TheMasterAndMargarita", 256, 1967, 8,
                 "Bulgakov", "Belletristic"));
-              assertEquals(expected, actual);
+        assertEquals(expected, actual);
         repository.clear();
     }
 
     @Test
     public void sort() throws NotNumberException, WrongKeyDAOException, WrongFileException, WrongValueDAOException, WrongPathException {
         Repository repository = RepositoryImpl.getInstance();
-        repository.save();
+        repository.make();
 
-        SpecificationSearch specificationSearch=new SpecificationSearchByGenre("Belletristic");
+        SpecificationSearch specificationSearch = new SpecificationSearchByGenre("Belletristic");
         List<Edition> actual = repository.find(specificationSearch);
-        Comparator comparator=new ComparatorByReleaseYear();
+        Comparator comparator = new ComparatorByReleaseYear();
         actual.sort(comparator);
 
-        List<Edition> expected=new ArrayList<>();
+        List<Edition> expected = new ArrayList<>();
 
         expected.add(new Book(3, "WarAndPeace", 1226, 1869, 8,
-                "Tolstoy", "Belletristic") );
+                "Tolstoy", "Belletristic"));
         expected.add(new Book(5, "TheMasterAndMargarita", 256, 1967, 8,
-                "Bulgakov", "Belletristic") );
+                "Bulgakov", "Belletristic"));
         expected.add(new Book(1, "HarryPotter", 200, 1997, 60,
-                "Rowling", "Belletristic") );
+                "Rowling", "Belletristic"));
 
         assertEquals(expected, actual);
-repository.clear();
+        repository.clear();
+    }
+
+    @Test
+    public void delete() throws NotNumberException, WrongKeyDAOException, WrongFileException, WrongValueDAOException, WrongPathException {
+        Repository repository = RepositoryImpl.getInstance();
+        repository.add(new Book(3, "WarAndPeace", 1226, 1869, 8,
+                "Tolstoy", "Belletristic"));
+        repository.add(new Book(5, "TheMasterAndMargarita", 256, 1967, 8,
+                "Bulgakov", "Belletristic"));
+        repository.add(new Book(1, "HarryPotter", 200, 1997, 60,
+                "Rowling", "Belletristic"));
+
+        repository.delete((new Book(3, "WarAndPeace", 1226, 1869, 8,
+                "Tolstoy", "Belletristic")));
+
+        List<Edition> expected = new ArrayList<>();
+
+        expected.add(new Book(5, "TheMasterAndMargarita", 256, 1967, 8,
+                "Bulgakov", "Belletristic"));
+        expected.add(new Book(1, "HarryPotter", 200, 1997, 60,
+                "Rowling", "Belletristic"));
+
+        assertEquals(expected, repository.getAll());
+        repository.clear();
     }
 }

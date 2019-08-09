@@ -26,10 +26,15 @@ public class EditionServiceImpl implements EditionService {
     Repository repository = RepositoryImpl.getInstance();
 
     @Override
-    public List<Edition> save() throws NotNumberException, WrongKeyDAOException, WrongFileException, WrongValueDAOException, WrongPathException {
+    public List<Edition> make() throws NotNumberException, WrongKeyDAOException, WrongFileException, WrongValueDAOException, WrongPathException {
 
-        repository.save();
+        repository.make();
         return repository.getAll();
+    }
+
+    @Override
+    public void add(Edition edition) {
+        repository.add(edition);
     }
 
     @Override

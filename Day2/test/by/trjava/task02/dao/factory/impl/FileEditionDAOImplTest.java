@@ -1,4 +1,4 @@
-package by.trjava.task02.dao.impl;
+package by.trjava.task02.dao.factory.impl;
 
 import by.trjava.task02.dao.FileEditionDAO;
 import by.trjava.task02.entity.*;

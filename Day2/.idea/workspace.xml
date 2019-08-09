@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="be5d6c3f-a7ae-4dde-90ef-a82f3f8e2f31" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Day2" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="JUnit4 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1OTS7QTMlKh9L60lwxm9Ctwlvya" />
+  <component name="PropertiesComponent">
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Soft/apache-log4j-1.2.17" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="by.trjava.task02.dao" />
+      <recent name="repository.impl" />
+      <recent name="by.trjava.task02.service.specification.util.impl" />
+      <recent name="by.trjava.task02.dao.impl" />
+      <recent name="by.trjava.task02.service.specification" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="by.trjava.task02.service" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="by.trjava.task02.dao.factory" />
+      <recent name="by.trjava.task02.service" />
+      <recent name="by.trjava.task02.dao" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Day2\src" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.ValidatorDAOTest">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="by.trjava.task02.controller.Main" />
+      <module name="Day2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.trjava.task02.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ValidatorDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Day2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.trjava.task02.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.trjava.task02.dao" />
+      <option name="MAIN_CLASS_NAME" value="by.trjava.task02.dao.ValidatorDAOTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ValidatorDAOTest.validateValueDoubleTrue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Day2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.trjava.task02.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.trjava.task02.dao" />
+      <option name="MAIN_CLASS_NAME" value="by.trjava.task02.dao.ValidatorDAOTest" />
+      <option name="METHOD_NAME" value="validateValueDoubleTrue" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ValidatorDAOTest.validateValueIntegerBigValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Day2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.trjava.task02.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.trjava.task02.dao" />
+      <option name="MAIN_CLASS_NAME" value="by.trjava.task02.dao.ValidatorDAOTest" />
+      <option name="METHOD_NAME" value="validateValueIntegerBigValue" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ValidatorDAOTest.validateValueIntegerTrue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Day2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.trjava.task02.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.trjava.task02.dao" />
+      <option name="MAIN_CLASS_NAME" value="by.trjava.task02.dao.ValidatorDAOTest" />
+      <option name="METHOD_NAME" value="validateValueIntegerTrue" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ValidatorDAOTest" />
+        <item itemvalue="JUnit.ValidatorDAOTest.validateValueIntegerBigValue" />
+        <item itemvalue="JUnit.ValidatorDAOTest.validateValueIntegerTrue" />
+        <item itemvalue="JUnit.ValidatorDAOTest.validateValueDoubleTrue" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="be5d6c3f-a7ae-4dde-90ef-a82f3f8e2f31" name="Default Changelist" comment="" />
+      <created>1563999927608</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1563999927608</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/by/trjava/task02/dao/factory/impl/FileEditionDAOImpl.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Day2$L.ic" NAME="L Coverage Results" MODIFIED="1564048963562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Day2$Main.ic" NAME="Main Coverage Results" MODIFIED="1564605302126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>by.trjava.task02.controller.*</FILTER>
+    </SUITE>
+  </component>
+</project>

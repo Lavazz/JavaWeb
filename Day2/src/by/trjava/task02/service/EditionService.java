@@ -8,7 +8,9 @@ import java.util.Comparator;
 import java.util.List;
 
 public interface EditionService {
-    List<Edition> save() throws NotNumberException, WrongKeyDAOException, WrongFileException, WrongValueDAOException, WrongPathException;
+    List<Edition> make() throws NotNumberException, WrongKeyDAOException, WrongFileException, WrongValueDAOException, WrongPathException;
+
+    public void add(Edition edition);
 
     List<Edition> find(SpecificationSearch specificationSearch);
 
