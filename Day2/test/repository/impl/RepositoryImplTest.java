@@ -1,10 +1,11 @@
 package repository.impl;
 
+import by.trjava.task02.dao.Creator;
+import by.trjava.task02.dao.exception.*;
 import by.trjava.task02.dao.repository.impl.RepositoryImpl;
 import by.trjava.task02.entity.Book;
 import by.trjava.task02.entity.Edition;
 import by.trjava.task02.entity.Newspaper;
-import by.trjava.task02.exception.*;
 import by.trjava.task02.service.comparator.ComparatorByReleaseYear;
 import by.trjava.task02.service.specification.SpecificationSearch;
 import by.trjava.task02.service.specification.search.impl.*;
@@ -19,10 +20,12 @@ import static org.junit.Assert.*;
 
 public class RepositoryImplTest {
 
+    Creator creator=Creator.getInstance();
+    Repository repository = RepositoryImpl.getInstance();
     @Test
-    public void findByTitle() throws NotNumberException, WrongKeyDAOException, WrongFileException, WrongValueDAOException, WrongPathException {
-        Repository repository = RepositoryImpl.getInstance();
-        repository.make();
+    public void findByTitle() throws NotNumberException, WrongKeyDAOException, WrongFileException, WrongValueDAOException, WrongPathException, EditionNotFoundException, IncorrectTypeException {
+       creator.create();
+        repository.getAll();
 
         SpecificationSearch specificationSearch = new SpecificationSearchByTitle("trafficRegulations");
         List<Edition> actual = repository.find(specificationSearch);
@@ -35,9 +38,9 @@ public class RepositoryImplTest {
     }
 
     @Test
-    public void findByType() throws NotNumberException, WrongKeyDAOException, WrongFileException, WrongValueDAOException, WrongPathException {
-        Repository repository = RepositoryImpl.getInstance();
-        repository.make();
+    public void findByType() throws NotNumberException, WrongKeyDAOException, WrongFileException, WrongValueDAOException, WrongPathException, EditionNotFoundException, IncorrectTypeException {
+        creator.create();
+        repository.getAll();
 
         SpecificationSearch specificationSearch = new SpecificationSearchByType("Book");
         List<Edition> actual = repository.find(specificationSearch);
@@ -59,9 +62,9 @@ public class RepositoryImplTest {
 
 
     @Test
-    public void findByFirsLetter() throws NotNumberException, WrongKeyDAOException, WrongFileException, WrongValueDAOException, WrongPathException {
-        Repository repository = RepositoryImpl.getInstance();
-        repository.make();
+    public void findByFirsLetter() throws NotNumberException, WrongKeyDAOException, WrongFileException, WrongValueDAOException, WrongPathException, EditionNotFoundException, IncorrectTypeException {
+        creator.create();
+        repository.getAll();
 
         SpecificationSearch specificationSearch = new SpecificationSearchByTitleFirstLetter("T");
         List<Edition> actual = repository.find(specificationSearch);
@@ -79,9 +82,9 @@ public class RepositoryImplTest {
     }
 
     @Test
-    public void findTwoParameters() throws NotNumberException, WrongKeyDAOException, WrongFileException, WrongValueDAOException, WrongPathException {
-        Repository repository = RepositoryImpl.getInstance();
-        repository.make();
+    public void findTwoParameters() throws NotNumberException, WrongKeyDAOException, WrongFileException, WrongValueDAOException, WrongPathException, EditionNotFoundException, IncorrectTypeException {
+        creator.create();
+        repository.getAll();
 
         SpecificationSearch specificationSearch = new SpecificationSearchByGenre("Belletristic");
         SpecificationSearch specificationSearch1 = new SpecificationSearchByNumberOfPages(100, 400);
@@ -97,9 +100,9 @@ public class RepositoryImplTest {
     }
 
     @Test
-    public void sort() throws NotNumberException, WrongKeyDAOException, WrongFileException, WrongValueDAOException, WrongPathException {
-        Repository repository = RepositoryImpl.getInstance();
-        repository.make();
+    public void sort() throws NotNumberException, WrongKeyDAOException, WrongFileException, WrongValueDAOException, WrongPathException, EditionNotFoundException, IncorrectTypeException {
+        creator.create();
+        repository.getAll();
 
         SpecificationSearch specificationSearch = new SpecificationSearchByGenre("Belletristic");
         List<Edition> actual = repository.find(specificationSearch);

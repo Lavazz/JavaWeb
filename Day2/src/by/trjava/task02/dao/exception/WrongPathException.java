@@ -1,4 +1,4 @@
-package by.trjava.task02.exception;
+package by.trjava.task02.dao.exception;
 
 public class WrongPathException extends  Exception {
     public  WrongPathException(String message){

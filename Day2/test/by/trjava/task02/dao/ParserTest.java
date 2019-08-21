@@ -1,14 +1,12 @@
 package by.trjava.task02.dao;
 
-import by.trjava.task02.exception.WrongKeyDAOException;
-import by.trjava.task02.exception.WrongValueDAOException;
+import by.trjava.task02.dao.exception.WrongKeyDAOException;
+import by.trjava.task02.dao.exception.WrongValueDAOException;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static org.junit.Assert.*;
 
 public class ParserTest {
 

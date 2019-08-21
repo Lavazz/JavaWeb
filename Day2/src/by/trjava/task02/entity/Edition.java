@@ -15,7 +15,7 @@ public abstract class Edition {
     public static final int CURRENT_YEAR = 2019;
     public static final int CURRENT_MONTH = 8;
     private int id;
-    String genre;
+    private String genre;
     private String title;
     private int numberOfPages;
     private int releaseYear;
@@ -27,10 +27,13 @@ public abstract class Edition {
         this.numberOfPages = numberOfPages;
         this.releaseYear = releaseYear;
         this.initialPrice = initialPrice;
-        this.genre=genre;
+        this.genre = genre;
     }
 
-    public abstract double calculateCurrentPrice(double initialPrice, int releaseYear);
+    public Edition() {
+    }
+
+    public abstract double calculateCurrentPrice();
 
     public int getId() {
         return id;
@@ -63,9 +66,11 @@ public abstract class Edition {
     public void setReleaseYear(int releaseYear) {
         this.releaseYear = releaseYear;
     }
+
     public void setGenre(String genre) {
         this.genre = genre;
     }
+
     public String getGenre() {
         return genre;
     }
@@ -78,7 +83,7 @@ public abstract class Edition {
         this.initialPrice = initialPrice;
     }
 
-       @Override
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
@@ -122,7 +127,7 @@ public abstract class Edition {
 
     @Override
     public int hashCode() {
-        return (int) (31 * id + (title == null ? 0 : title.hashCode())+(genre == null ? 0 : genre.hashCode()) + numberOfPages + releaseYear
+        return (int) (31 * id + (title == null ? 0 : title.hashCode()) + (genre == null ? 0 : genre.hashCode()) + numberOfPages + releaseYear
                 + initialPrice);
     }
 
@@ -130,11 +135,10 @@ public abstract class Edition {
     public String toString() {
         return getClass().getName() + "@ " +
                 "id=" + id +
-                ", genre='"+genre+ '\''+
+                ", genre='" + genre + '\'' +
                 ", title='" + title + '\'' +
-                ", releaseYear=" + releaseYear+
+                ", releaseYear=" + releaseYear +
                 ", numberOfPages=" + numberOfPages +
-                ", initialPrice=" + initialPrice ;
+                ", initialPrice=" + initialPrice;
     }
-
 }

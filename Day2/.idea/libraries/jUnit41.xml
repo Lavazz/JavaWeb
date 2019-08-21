@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="jUnit41">
+    <CLASSES>
+      <root url="file://E:/Soft/jUnit4.12" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://E:/Soft/jUnit4.12" />
+    </SOURCES>
+    <jarDirectory url="file://E:/Soft/jUnit4.12" recursive="false" />
+    <jarDirectory url="file://E:/Soft/jUnit4.12" recursive="false" type="SOURCES" />
+  </library>
+</component>

@@ -1,5 +1,6 @@
 package by.trjava.task02.dao;
 
+import by.trjava.task02.dao.validation.ValidatorDAO;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

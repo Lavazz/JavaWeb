@@ -1,18 +1,20 @@
 package by.trjava.task02.service;
 
+import by.trjava.task02.dao.exception.EditionNotFoundException;
 import by.trjava.task02.entity.Edition;
-import by.trjava.task02.exception.*;
+import by.trjava.task02.dao.exception.*;
 import by.trjava.task02.service.specification.SpecificationSearch;
 
 import java.util.Comparator;
 import java.util.List;
 
 public interface EditionService {
-    List<Edition> make() throws NotNumberException, WrongKeyDAOException, WrongFileException, WrongValueDAOException, WrongPathException;
 
     public void add(Edition edition);
 
-    List<Edition> find(SpecificationSearch specificationSearch);
+    List<Edition> getAll();
+
+    List<Edition> find(SpecificationSearch specificationSearch) throws EditionNotFoundException;
 
     void delete(Edition edition);
 

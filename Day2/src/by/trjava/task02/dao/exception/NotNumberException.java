@@ -1,4 +1,4 @@
-package by.trjava.task02.exception;
+package by.trjava.task02.dao.exception;
 
 public class NotNumberException extends Exception {
     public NotNumberException(String message){

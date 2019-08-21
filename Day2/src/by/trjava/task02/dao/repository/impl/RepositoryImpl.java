@@ -1,10 +1,6 @@
 package by.trjava.task02.dao.repository.impl;
 
-import by.trjava.task02.dao.factory.DAOFactory;
-import by.trjava.task02.dao.FileEditionDAO;
-import by.trjava.task02.dao.FileReader;
-import by.trjava.task02.dao.Parser;
-import by.trjava.task02.exception.*;
+import by.trjava.task02.dao.exception.*;
 import by.trjava.task02.service.specification.SpecificationSearch;
 import by.trjava.task02.dao.repository.Repository;
 import by.trjava.task02.entity.Edition;
@@ -42,28 +38,8 @@ public class RepositoryImpl implements Repository {
      * @throws WrongFileException     if an input-output exception occurs
      * @throws NotNumberException     if expected a number from a string, but there is a different type
      */
-    @Override
-    public void make() throws WrongValueDAOException, WrongPathException, WrongFileException, NotNumberException, WrongKeyDAOException {
 
-        List<String> lines = FileReader.readEditionList();
-
-        for (String line : lines) {
-            if (line.equals("")) {
-                continue;
-            }
-            Map<String, Object> editionMap = Parser.parseString(line);
-            String editionType = Parser.findEditionType(line);
-            DAOFactory factory = DAOFactory.getInstance();
-            FileEditionDAO editionDAO = factory.getEditionDAO();
-
-            Edition edition = editionDAO.create(editionType, editionMap);
-            if (edition != null) {
-                editionList.add(edition);
-            }
-        }
-    }
-
-    @Override
+       @Override
     public void add(Edition edition) {
         if (edition != null) {
             editionList.add(edition);
@@ -77,18 +53,22 @@ public class RepositoryImpl implements Repository {
      */
     @Override
     public List<Edition> getAll() {
-        List<Edition> copyEditionList = new ArrayList<>(editionList);
-        return copyEditionList;
+        return editionList;
     }
 
     @Override
-    public List<Edition> find(SpecificationSearch specificationSearch) {
+    public List<Edition> find(SpecificationSearch specificationSearch) throws EditionNotFoundException {
         List<Edition> searchedList = new ArrayList<Edition>();
+        int count=0;
         for (Edition edition : editionList) {
             //checks whether the object satisfies the search condition
             if (specificationSearch.isSatisfiedBy(edition)) {
                 searchedList.add(edition);
+                count++;
             }
+        }
+        if (count==0){
+            throw new EditionNotFoundException("Edition with this criterion is not found");
         }
         return searchedList;
     }
@@ -103,7 +83,7 @@ public class RepositoryImpl implements Repository {
         editionList.remove(edition);
     }
 
-       /**
+    /**
      * This method sorts objects, which are saved in the repository
      *
      * @param comparator which is needed for sorting

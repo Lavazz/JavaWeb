@@ -1,14 +1,14 @@
 package by.trjava.task02.dao;
 
-import by.trjava.task02.exception.WrongKeyDAOException;
-import by.trjava.task02.exception.WrongValueDAOException;
+import by.trjava.task02.dao.exception.WrongKeyDAOException;
+import by.trjava.task02.dao.exception.WrongValueDAOException;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.log4j.Logger;
+import by.trjava.task02.dao.validation.ValidatorDAO;
 
 /**
  * This class contains  method that parses information about editions from {@code String} to {@code Map}
@@ -19,9 +19,7 @@ import org.apache.log4j.Logger;
  */
 public class Parser {
 
-    private static final Logger LOGGER = Logger.getLogger(Parser.class);
-
-    /**
+     /**
      * This method parses information about editions and check if its valid
      *
      * @param line - String from array with information about editions
@@ -45,12 +43,10 @@ public class Parser {
             key = matcher.group(FIRST_INDICATOR);
             value = matcher.group(SECOND_INDICATOR);
             if (!ValidatorDAO.validateKey(key)) {
-                LOGGER.debug("Key in file is empty");
-                throw new WrongKeyDAOException("Wrong key in DAO");
+               throw new WrongKeyDAOException("Wrong key in DAO");
             }
             if (!ValidatorDAO.validateValue(value)) {
-                LOGGER.debug("Value in file is not valid");
-                throw new WrongValueDAOException("Wrong value in DAO");
+               throw new WrongValueDAOException("Wrong value in DAO");
             }
             map.put(key, value);
         }

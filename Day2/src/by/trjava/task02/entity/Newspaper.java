@@ -1,15 +1,18 @@
 package by.trjava.task02.entity;
 
 public class Newspaper extends Edition {
-    private static final double DECREASING_COEFFICIENT_NEWSPAPER=0.3;
-    String editor;
-    int releaseMonth;
+    private static final double DECREASING_COEFFICIENT_NEWSPAPER = 0.3;
+    private String editor;
+    private int releaseMonth;
 
     public Newspaper(int id, String title, int numberOfPages, int releaseYear, double initialPrice, String editor
             , int releaseMonth, String genre) {
         super(id, title, numberOfPages, releaseYear, initialPrice, genre);
         this.releaseMonth = releaseMonth;
         this.editor = editor;
+    }
+
+    public Newspaper() {
     }
 
     public String getEditor() {
@@ -29,8 +32,9 @@ public class Newspaper extends Edition {
     }
 
     @Override
-    public double calculateCurrentPrice(double initialPrice, int releaseYear) {
-        return initialPrice - ((CURRENT_YEAR - releaseYear)*12+(CURRENT_MONTH-releaseMonth)) * DECREASING_COEFFICIENT_NEWSPAPER * initialPrice;
+    public double calculateCurrentPrice() {
+        return getInitialPrice() - ((CURRENT_YEAR - getReleaseYear()) * 12 + (CURRENT_MONTH - releaseMonth))
+                * DECREASING_COEFFICIENT_NEWSPAPER;
     }
 
     @Override
@@ -56,8 +60,8 @@ public class Newspaper extends Edition {
             }
         }
         if (releaseMonth != other.releaseMonth) {
-                return false;
-             }
+            return false;
+        }
         return true;
     }
 
@@ -68,7 +72,7 @@ public class Newspaper extends Edition {
 
     @Override
     public String toString() {
-        return super.toString()+
+        return super.toString() +
                 ", editor='" + editor + +'\'' +
                 ", releaseMonth=" + releaseMonth;
     }

@@ -1,10 +1,11 @@
 package by.trjava.task02.service.impl;
 
 import by.trjava.task02.dao.FileEditionDAO;
+import by.trjava.task02.dao.exception.EditionNotFoundException;
 import by.trjava.task02.dao.repository.Repository;
 import by.trjava.task02.dao.repository.impl.RepositoryImpl;
 import by.trjava.task02.entity.Edition;
-import by.trjava.task02.exception.*;
+import by.trjava.task02.dao.exception.*;
 import by.trjava.task02.service.EditionService;
 import by.trjava.task02.service.specification.SpecificationSearch;
 
@@ -22,15 +23,7 @@ public class EditionServiceImpl implements EditionService {
 //    public EditionServiceImpl() {
 //    }
 
-
     Repository repository = RepositoryImpl.getInstance();
-
-    @Override
-    public List<Edition> make() throws NotNumberException, WrongKeyDAOException, WrongFileException, WrongValueDAOException, WrongPathException {
-
-        repository.make();
-        return repository.getAll();
-    }
 
     @Override
     public void add(Edition edition) {
@@ -38,7 +31,12 @@ public class EditionServiceImpl implements EditionService {
     }
 
     @Override
-    public List<Edition> find(SpecificationSearch specificationSearch) {
+    public List<Edition> getAll(){
+       return repository.getAll();
+    }
+
+    @Override
+    public List<Edition> find(SpecificationSearch specificationSearch) throws EditionNotFoundException {
         return repository.find(specificationSearch);
     }
 

@@ -2,25 +2,31 @@ package by.trjava.task02.entity;
 
 
 public class Album extends Edition {
-    String designer;
 
-    private static final double DECREASING_COEFFICIENT_ALBUM=0.3;
+    private String designer;
+    private static final double DECREASING_COEFFICIENT_ALBUM = 0.3;
+
     public Album(int id, String title, int numberOfPages, int releaseYear, double initialPrice, String designer, String genre) {
         super(id, title, numberOfPages, releaseYear, initialPrice, genre);
         this.designer = designer;
-            }
+    }
 
-       public String getAuthor() {
+    public Album() {
+    }
+
+    public String getDesigner() {
         return designer;
     }
 
-    public void setAuthor(String designer) {
+    public void setDesigner(String designer) {
         this.designer = designer;
     }
+
     @Override
-    public double calculateCurrentPrice(double initialPrice, int releaseYear) {
-        return initialPrice-(CURRENT_YEAR-releaseYear)*DECREASING_COEFFICIENT_ALBUM*initialPrice;
+    public double calculateCurrentPrice() {
+        return getInitialPrice() - (CURRENT_YEAR - getReleaseYear()) * DECREASING_COEFFICIENT_ALBUM;
     }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -53,7 +59,7 @@ public class Album extends Edition {
 
     @Override
     public String toString() {
-        return  super.toString()+
+        return super.toString() +
                 ", designer='" + designer + '\'';
     }
 }

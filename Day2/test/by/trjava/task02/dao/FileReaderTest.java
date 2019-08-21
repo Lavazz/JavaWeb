@@ -1,7 +1,7 @@
 package by.trjava.task02.dao;
 
-import by.trjava.task02.exception.WrongFileException;
-import by.trjava.task02.exception.WrongPathException;
+import by.trjava.task02.dao.exception.WrongFileException;
+import by.trjava.task02.dao.exception.WrongPathException;
 import org.junit.Test;
 
 import java.util.ArrayList;

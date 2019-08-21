@@ -1,22 +1,13 @@
 package by.trjava.task02.dao;
 
-import by.trjava.task02.entity.Edition;
-import by.trjava.task02.exception.WrongFileException;
-import by.trjava.task02.exception.WrongKeyDAOException;
-import by.trjava.task02.exception.WrongPathException;
-import by.trjava.task02.exception.WrongValueDAOException;
+import by.trjava.task02.dao.exception.WrongFileException;
+import by.trjava.task02.dao.exception.WrongPathException;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -28,7 +19,6 @@ import java.util.stream.Stream;
  * @since JDK 8.0
  */
 public class FileReader {
-    private static final Logger LOGGER = Logger.getLogger(String.valueOf(FileReader.class));
 
     private static final String PATH = "./resources/library_db.txt";
 
@@ -46,11 +36,9 @@ public class FileReader {
             // and add information to the collection
             return lineStream.collect(Collectors.toList());
         } catch (NullPointerException npe) {
-            LOGGER.info("File is not found" + npe.getMessage());
-            throw new WrongPathException("File is not found", npe);
+           throw new WrongPathException("File is not found", npe);
         } catch (IOException ioe) {
-            LOGGER.info("File is wrong" + ioe.getMessage());
-            throw new WrongFileException("File is wrong", ioe);
+           throw new WrongFileException("File is wrong", ioe);
         }
     }
 

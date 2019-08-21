@@ -1,13 +1,16 @@
 package by.trjava.task02.entity;
 
-public  class Book extends Edition {
-    private static final double DECREASING_COEFFICIENT_BOOK=0.3;
-    String author;
+public class Book extends Edition {
+    private static final double DECREASING_COEFFICIENT_BOOK = 0.3;
+    private String author;
 
-       public Book(int id, String title, int numberOfPages, int releaseYear, double initialPrice, String author, String genre) {
+    public Book(int id, String title, int numberOfPages, int releaseYear, double initialPrice, String author, String genre) {
         super(id, title, numberOfPages, releaseYear, initialPrice, genre);
         this.author = author;
-                   }
+    }
+
+    public Book() {
+    }
 
     public String getAuthor() {
         return author;
@@ -17,12 +20,12 @@ public  class Book extends Edition {
         this.author = author;
     }
 
-     @Override
-    public double calculateCurrentPrice(double initialPrice, int releaseYear) {
-        return initialPrice-(CURRENT_YEAR-releaseYear)*DECREASING_COEFFICIENT_BOOK*initialPrice;
+    @Override
+    public double calculateCurrentPrice() {
+        return getInitialPrice() - (CURRENT_YEAR - getReleaseYear()) * DECREASING_COEFFICIENT_BOOK;
     }
 
-        @Override
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
@@ -35,24 +38,24 @@ public  class Book extends Edition {
         }
         if (!super.equals(obj)) return false;
         Book other = (Book) obj;
-              if (author == null) {
+        if (author == null) {
             if (other.author != null) {
                 return false;
             } else if (!author.equals(other.author)) {
                 return false;
             }
         }
-                   return true;
+        return true;
     }
 
     @Override
     public int hashCode() {
-        return (int)(super.hashCode()+ (author == null ? 0 : author.hashCode()));
+        return (int) (super.hashCode() + (author == null ? 0 : author.hashCode()));
     }
 
     @Override
     public String toString() {
-        return  super.toString()+
+        return super.toString() +
                 ", author='" + author + '\'';
     }
 }

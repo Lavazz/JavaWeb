@@ -1,6 +1,7 @@
-package by.trjava.task02.dao;
+package by.trjava.task02.dao.validation;
 
 import by.trjava.task02.entity.type.EditionType;
+import by.trjava.task02.entity.type.Type;
 
 /**
  * This class check if can editions contains this format of information
@@ -55,6 +56,15 @@ public class ValidatorDAO {
         }
         return result;
     }
+
+    public static boolean checkType(String editionType){
+        if(!(editionType.equals(Type.BOOK.getValue())||editionType.equals(Type.ALBUM.getValue())
+                ||editionType.equals(Type.NEWSPAPER.getValue())||editionType.equals(Type.MAGAZINE.getValue()))){
+            return false;
+        }
+        return true;
+    }
+
 }
 
 

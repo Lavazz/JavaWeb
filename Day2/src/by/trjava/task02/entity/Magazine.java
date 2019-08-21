@@ -1,16 +1,19 @@
 package by.trjava.task02.entity;
 
-public  class Magazine extends Edition {
-    private static final double DECREASING_COEFFICIENT_MAGAZINE=0.3;
+public class Magazine extends Edition {
+    private static final double DECREASING_COEFFICIENT_MAGAZINE = 0.3;
 
-    String editor;
-    int releaseMonth;
+    private String editor;
+    private int releaseMonth;
 
-    public Magazine(int id, String title, int numberOfPages, int releaseYear, double initialPrice,  String editor
-            ,int releaseMonth, String genre) {
+    public Magazine(int id, String title, int numberOfPages, int releaseYear, double initialPrice, String editor
+            , int releaseMonth, String genre) {
         super(id, title, numberOfPages, releaseYear, initialPrice, genre);
         this.releaseMonth = releaseMonth;
-        this.editor=editor;
+        this.editor = editor;
+    }
+
+    public Magazine() {
     }
 
     public String getEditor() {
@@ -30,8 +33,9 @@ public  class Magazine extends Edition {
     }
 
     @Override
-    public double calculateCurrentPrice(double initialPrice, int releaseYear) {
-        return initialPrice - ((CURRENT_YEAR - releaseYear)*12+(CURRENT_MONTH-releaseMonth)) * DECREASING_COEFFICIENT_MAGAZINE * initialPrice;
+    public double calculateCurrentPrice() {
+        return getInitialPrice() - ((CURRENT_YEAR - getReleaseYear()) * 12 + (CURRENT_MONTH - releaseMonth))
+                * DECREASING_COEFFICIENT_MAGAZINE;
     }
 
     @Override
@@ -54,22 +58,22 @@ public  class Magazine extends Edition {
             }
         }
 
-        if (releaseMonth !=other.releaseMonth) {
-                return false;
+        if (releaseMonth != other.releaseMonth) {
+            return false;
         }
         return true;
     }
 
     @Override
     public int hashCode() {
-        return (int) (super.hashCode() +(editor == null ? 0 : editor.hashCode())
+        return (int) (super.hashCode() + (editor == null ? 0 : editor.hashCode())
                 + releaseMonth);
     }
 
     @Override
     public String toString() {
         return super.toString() +
-                ", editor='" + editor+ '\''+
+                ", editor='" + editor + '\'' +
                 ", releaseMonth=" + releaseMonth;
     }
 }
